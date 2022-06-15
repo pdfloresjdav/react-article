@@ -12,13 +12,22 @@ const TestBody = (props) => {
 }
 
 class Test extends Component {
-render() {
-  const names = this.props.names;
+
+  submitForm = (event) => {
+    alert(`Evento Click ejecutado`);
+  }
   
-  return (
-      <TestBody names={names}/>
-  )
-}
+  render() {
+    const names = this.props.names;
+    
+    return (
+      <>
+        <TestBody names={names}/>
+        <input type="button" value="Submit" onClick={this.submitForm} />
+      </>
+        
+    )
+  }
 }
 
 export default Test

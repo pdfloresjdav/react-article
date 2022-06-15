@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 const TestBody = (props) => {
   const content = props.names.name.map((index)=>{
@@ -19,7 +19,10 @@ const Test = (props) => {
     setTest(test => test + 1);
     alert(`Aumenta ${test}`);
   }
-  
+  useEffect(() => {
+    // Actualiza el título del documento usando la API del navegador
+    document.title = `You clicked ${test} times`;
+  });
   return (
     <>
       <TestBody names={names}/>

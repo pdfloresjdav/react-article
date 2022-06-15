@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 const TestBody = (props) => {
-  const content = props.names.map((index)=>{
+  const content = props.names.name.map((index)=>{
     return <h1> Hola {index.name} {index.lastName}</h1>
   });
   return(
@@ -14,6 +14,7 @@ const TestBody = (props) => {
 class Test extends Component {
 render() {
   const names = this.props.names;
+  
   return (
       <TestBody names={names}/>
   )

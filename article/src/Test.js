@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 
 const TestBody = (props) => {
   const content = props.names.name.map((index)=>{
@@ -11,23 +11,23 @@ const TestBody = (props) => {
   )
 }
 
-class Test extends Component {
-
-  submitForm = (event) => {
-    alert(`Evento Click ejecutado`);
+const Test = (props) => {
+  const [names, setNames] = useState(props.names);
+  const [test, setTest] = useState(0);
+  const submitForm = (event) => {
+    //actulizamos el valor test sumado 1
+    setTest(test => test + 1);
+    alert(`Aumenta ${test}`);
   }
   
-  render() {
-    const names = this.props.names;
-    
-    return (
-      <>
-        <TestBody names={names}/>
-        <input type="button" value="Submit" onClick={this.submitForm} />
-      </>
-        
-    )
-  }
+  return (
+    <>
+      <TestBody names={names}/>
+      <input type="button" value="Submit" onClick={submitForm} />
+    </>
+      
+  )
+
 }
 
 export default Test

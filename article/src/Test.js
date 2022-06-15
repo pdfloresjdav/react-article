@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react';
+import { AuthContext } from './AuthContext';
 
 const TestBody = (props) => {
   const content = props.names.name.map((index)=>{
@@ -12,7 +13,7 @@ const TestBody = (props) => {
 }
 
 const Test = (props) => {
-  const [names, setNames] = useState(props.names);
+  const [names, setNames] = useState(useContext(AuthContext));
   const [test, setTest] = useState(0);
   const submitForm = (event) => {
     //actulizamos el valor test sumado 1

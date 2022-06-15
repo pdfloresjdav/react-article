@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import logo from './logo.svg';
 import './App.css';
 import Test from './Test';
+import { AuthContext } from './AuthContext';
 
 class AppTest extends Component {
   constructor(props) {
@@ -18,9 +19,9 @@ class AppTest extends Component {
   
     const name =this.state
     return (
-      <div className="containerTest">
+      <AuthContext.Provider value={name}>
         <Test names={name} />
-      </div>
+      </AuthContext.Provider>
     )
   }
 }

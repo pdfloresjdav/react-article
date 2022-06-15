@@ -1,17 +1,23 @@
 import React, {Component} from 'react'
 
-const TestBody = () => {
-  return (
-      <h1> Hola Test! </h1>
+const TestBody = (props) => {
+  const content = props.names.map((index)=>{
+    return <h1> Hola {index.name} {index.lastName}</h1>
+  });
+  return(
+      <>
+          {content}
+      </>
   )
 }
 
 class Test extends Component {
-  render() {
-    return (
-      <TestBody />
-          )
-  }
+render() {
+  const names = this.props.names;
+  return (
+      <TestBody names={names}/>
+  )
+}
 }
 
 export default Test
